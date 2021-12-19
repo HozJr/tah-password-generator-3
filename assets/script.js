@@ -25,7 +25,7 @@ character = ["!", "#", "$", "%", "&", "'", "(", ")", "*", "+", ",", "-", ".", "/
 var generateBtn = document.querySelector("#generate");
 
 generateBtn.addEventListener("click", function () {
-   var password = generatePassword();
+   var pass = generatePassword();
    document.getElementById("password").placeholder = pass;
 });
 
@@ -106,6 +106,21 @@ function generatePassword() {
 
 var password = [];
 
+// Random selection for all variables
+for (var i = 0, i < enter; i++) {
+    var pickChoices = choices[Math.floor(Math.random() * choices.length)];
+    password.push(pickChoices);
+}
+
+//joins password array and makes into string
+var pass = password.join("");
+UserInput(pass);
+return pass;
+}
+
+//Password value into textbox
+function UserInput(pass) {
+    document.getElementById("password").textContent = pass;
 }
 
 
