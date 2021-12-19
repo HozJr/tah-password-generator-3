@@ -37,11 +37,12 @@ function generatePassword() {
         alert("This needs a value");
     } else if (enter < 8 || enter > 128) {
         enter = parseInt(prompt("You must choose between 8 and 128"));
+        generatePassword();
 
     } else {
         // Other user inputs
-        confirmNumber = confirm("Will password contain numbers?");
-        confirmCharacter = confirm("Will password contain special characters?");
+        confirmNumber = confirm("Will password contain Numbers?");
+        confirmCharacter = confirm("Will password contain Special characters?");
         confirmLowercase = confirm("Will password contain Lowercase letters");
         confirmUppercase = confirm("Will password contain Uppercase letters?");
     };
@@ -50,6 +51,7 @@ function generatePassword() {
 
     if (!confirmNumber && !confirmCharacter && !confirmLowercase && !confirmUppercase) {
         choices = alert("You must choose a criteria!");
+        generatePassword();
     }
 
     // If 4 positive responses
